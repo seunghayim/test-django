@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 import pymysql
@@ -33,7 +34,7 @@ ALLOWED_HOSTS = [
     #  '127.0.0.1',
     #  'localhost',
     #  '34.207.127.182'
-     '*'
+    '*'
 ]
 
 # Application definition
@@ -83,20 +84,20 @@ WSGI_APPLICATION = 'mydjango.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    #'default': {
+    # 'default': {
     #    'ENGINE': 'django.db.backends.sqlite3',
     #    'NAME': BASE_DIR / 'db.sqlite3',
-    #}
-     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'django_db', # DB명
-         'USER': 'python', # 데이터베이스 계정
-         'PASSWORD':'python', # 계정 비밀번호
-         # 'HOST':'localhost', # 데이테베이스 IP
-         'HOST':'mysql-svc',
-         'PORT':'3306', # 데이터베이스 port
-     }
- }
+    # }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_db',  # DB명
+        'USER': 'python',  # 데이터베이스 계정
+        'PASSWORD': 'python',  # 계정 비밀번호
+        # 'HOST':'localhost', # 데이테베이스 IP
+        'HOST': 'mysql-svc',
+        'PORT': '3306',  # 데이터베이스 port
+    }
+}
 
 
 # Password validation
@@ -134,11 +135,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-import os
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
 
 LOGIN_REDIRECT_URL = '/blog'
 
 
-CSRF_TRUSTED_ORIGINS = ["http://aws.wayrkks.com"]
+CSRF_TRUSTED_ORIGINS = ["http://www.mclabha.com"]
