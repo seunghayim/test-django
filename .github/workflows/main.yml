@@ -45,7 +45,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::940168446867:role/github-action
-          aws-region: us-east-2
+          aws-region: eu-west-2
 
       # Connect to EKS cluster
       - name: Connect to EKS cluster
