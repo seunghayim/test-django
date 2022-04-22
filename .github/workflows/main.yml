@@ -46,6 +46,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::940168446867:role/github-action
           aws-region: eu-west-2
+          role-session-name: github-action
 
       # Connect to EKS cluster
       - name: Connect to EKS cluster
