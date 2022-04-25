@@ -53,14 +53,6 @@ jobs:
       # Connect to EKS cluster
       - name: Connect to EKS cluster
         run: aws eks --region  ${{ secrets.AWS_DEFAULT_REGION }} update-kubeconfig --name  ${{ secrets.EKS_NAME }}
-        
-      - name: EKS cluster endpoint access control
-        run: |
-          aws eks update-cluster-config \
-          --region ${{ secrets.AWS_DEFAULT_REGION }} \
-          --name ${{ secrets.EKS_NAME }} \
-          --resources-vpc-config endpointPublicAccess=true,publicAccessCidrs="${{ env.ip_address }}/32",endpointPrivateAccess=true
-        
 
       - name: deploy was image
         run: kubectl set image deploy/was was=${{ secrets.DOCKERHUB_USERNAME }}/test:django_${GITHUB_RUN_NUMBER}
